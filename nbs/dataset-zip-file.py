@@ -21,3 +21,12 @@ for file_path in INPUTS_DIR.glob("*") :
 
 
 OUTPUTS_DIR.mkdir(exist_ok=True, parents=True)
+
+zip_outpath = OUTPUTS_DIR / "images.zip"
+print(zip_outpath.exists())
+
+with tempfile.TemporaryDirectory() as temp_dir :
+    for path in images_files_path:
+        shutil.copy(path, temp_dir)
+    shutil.make_archive(zip_outpath.with_suffix(''), 'zip', temp_dir)
+
