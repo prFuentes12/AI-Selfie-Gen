@@ -5,3 +5,4 @@ replicate
 pillow
 fastapi[standard]
 fastapi-limiter
+# pillow-heif
